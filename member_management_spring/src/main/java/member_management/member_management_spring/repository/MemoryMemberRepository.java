@@ -1,9 +1,11 @@
 package member_management.member_management_spring.repository;
 
 import member_management.member_management_spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
     // 데이터 저장용 객체 생성
     private static Map<Long, Member> store = new HashMap<>();
@@ -33,7 +35,7 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public Optional<Member> findByName(String Name) {
         return store.values().stream()
-                .filter(member ->  member.getName().equals((Name))) // 찾는 조건 : 이름이 같은가
+                .filter(member ->  member.getName().equals(Name)) // 찾는 조건 : 이름이 같은가
                 .findAny();                                         // 조건 만족하는 member 찾음 -> Optional로 감싸서 반환
     }
 

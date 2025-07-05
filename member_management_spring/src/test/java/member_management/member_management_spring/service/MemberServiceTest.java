@@ -16,13 +16,11 @@ class MemberServiceTest {
 
     MemberService memberService;
     MemoryMemberRepository memberRepository; // Test에서 새로 repository를 만들면,
-                                                                            // 기존의 MemberService에서 만든 repository와
-                                                                            // 다른, 새로운 repository가 생성됨
-                                                                            // ∴ 저장소가 달라짐!
-                                                                            // -> 내부 데이터가 다름!!
+                                             // 기존의 MemberService에서 만든 repository와 다른 새로운 repository가 생성됨
+                                             // ∴ 저장소가 달라짐! -> 내부 데이터가 다름!!
 
-                                                                            // ∴ MemberService에서 new 부분 삭제
-                                                                            // -> 외부에서 값 넣어주도록 바꾸기
+                                             // ∴ MemberService에서 new 부분 삭제
+                                             // -> 외부에서 값 넣어주도록 바꾸기
 
     @BeforeEach
     public void beforeEach(){
@@ -82,13 +80,5 @@ class MemberServiceTest {
         //then
         Assertions.assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다");
 
-    }
-
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }

@@ -3,10 +3,12 @@ package member_management.member_management_spring.service;
 import member_management.member_management_spring.domain.Member;
 import member_management.member_management_spring.repository.MemberRepository;
 import member_management.member_management_spring.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +39,7 @@ public class MemberService {
 
     // 중복 이름 있는지 검사
     private void duplicateMember(Member member) {
-        memberRepository.findByName(member.getName())                       // findByName의 return값 == Optinal
+        memberRepository.findByName(member.getName())                       // findByName의 return값 == Optional
             .ifPresent(m -> {                                               // -> ifPresent 사용 가능!
                 throw new IllegalStateException(("이미 존재하는 회원입니다"));
             });
