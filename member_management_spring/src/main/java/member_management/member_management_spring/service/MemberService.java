@@ -15,6 +15,7 @@ public class MemberService {
 
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
     //-> Test 코드떄문에, 외부에서 값 넣어주도록 바꾸기
+            // *
 
     private final MemberRepository memberRepository;
 
